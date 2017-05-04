@@ -141,7 +141,7 @@
       function search(){
         var txt=J.class("search").child(0).val().toUpperCase();
         var num=0;
-        for(var i=0;i<cs.length;i++){
+        for(var i=cs.length-1;i>=0;i--){
           if(cs[i][0].has(txt)){
             list.prepend(geneItem(cs[i]));
             J.class("search").child(0).val("");
