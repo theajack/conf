@@ -81,8 +81,6 @@
         }
         table{
           font-size:12px;
-          width:98%;
-          margin:0 auto;
         }
         tr.head{
           font-size:15px;
@@ -142,12 +140,18 @@
       }
       function search(){
         var txt=J.class("search").child(0).val().toUpperCase();
+        var num=0;
         for(var i=0;i<cs.length;i++){
-          if(cs[i][0]==txt){
+          if(cs[i][0].has(txt)){
             list.prepend(geneItem(cs[i]));
             J.class("search").child(0).val("");
-            break;
+            num++;
           }
+        }
+        if(num==0){
+          J.show("没有查询到结果","info");
+        }else{
+          J.show("查询到"+num+"条结果","success");
         }
       }
     </script>
